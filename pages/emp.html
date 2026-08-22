@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Authorized Board - Employee Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-lowest": "#ffffff",
+                "soft-pink": "#ffbefb",
+                "surface-container-high": "#f4e9b5",
+                "on-primary-fixed-variant": "#5e23a4",
+                "surface-container": "#f9efba",
+                "on-surface-variant": "#4b4452",
+                "inverse-primary": "#d8b9ff",
+                "outline": "#7c7484",
+                "primary": "#723bb9",
+                "on-error": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-tint": "#7740be",
+                "surface-bright": "#fff9ea",
+                "on-surface": "#201c00",
+                "warm-cream": "#fff4bf",
+                "secondary-fixed-dim": "#e8b3ff",
+                "surface": "#fff9ea",
+                "on-tertiary-fixed": "#340538",
+                "on-secondary-fixed": "#310049",
+                "surface-variant": "#eee3af",
+                "secondary-container": "#d992fc",
+                "on-background": "#201c00",
+                "error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#f2b2ee",
+                "inverse-on-surface": "#fcf1bd",
+                "deep-purple": "#8c56d4",
+                "secondary-fixed": "#f6d9ff",
+                "on-secondary-container": "#622085",
+                "on-secondary-fixed-variant": "#68278a",
+                "on-primary-fixed": "#290055",
+                "secondary": "#8241a4",
+                "on-secondary": "#ffffff",
+                "tertiary": "#7b477c",
+                "on-primary-container": "#fff7ff",
+                "surface-container-low": "#fff4c2",
+                "primary-fixed-dim": "#d8b9ff",
+                "background": "#fff9ea",
+                "tertiary-fixed": "#ffd6fa",
+                "primary-fixed": "#eddcff",
+                "primary-container": "#8c56d4",
+                "surface-dim": "#e5dba7",
+                "on-tertiary-container": "#fff7fa",
+                "tertiary-container": "#975f96",
+                "inverse-surface": "#36310c",
+                "on-tertiary": "#ffffff",
+                "surface-container-highest": "#eee3af",
+                "text-main": "#1d1b20",
+                "surface-base": "#fdfbff",
+                "on-tertiary-fixed-variant": "#663467",
+                "lavender-light": "#dc95ff",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "outline-variant": "#cdc3d4"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-page": "24px",
+                "padding-table-x": "16px",
+                "gutter": "16px",
+                "padding-card": "20px",
+                "base": "4px",
+                "padding-table-y": "12px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "headline-xl": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "headline-lg": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "data-mono": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "headline-md": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "label-sm": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "headline-xl-mobile": [
+                        "Arial",
+                        "sans-serif"
+                ],
+                "body-md": [
+                        "Arial",
+                        "sans-serif"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "data-mono": [
+                        "13px",
+                        {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-xl-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation Bar -->
+<header class="bg-surface text-primary border-b border-outline-variant flat no shadows docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-page h-16 max-w-[1440px] mx-auto">
+<!-- Brand -->
+<div class="flex items-center gap-8">
+<a class="text-headline-lg font-headline-lg font-bold text-secondary" href="#">
+                    Authorized Board
+                </a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-6 mt-1">
+<a class="text-secondary font-bold border-b-2 border-secondary pb-[18px]" href="#">
+                        Employees
+                    </a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors pb-[18px]" href="#">
+                        Attendance
+                    </a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors pb-[18px]" href="#">
+                        Time Off
+                    </a>
+</nav>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-4">
+<!-- Check In / Out Widget -->
+<div class="hidden md:flex items-center gap-2 border border-outline-variant rounded-lg p-1 bg-surface-container-lowest shadow-sm">
+<button class="px-3 py-1.5 rounded bg-error/10 text-error font-label-sm text-label-sm hover:bg-error/20 transition-colors flex items-center gap-1 group">
+<span class="w-2 h-2 rounded-full bg-error group-hover:animate-pulse"></span>
+                        Check Out
+                    </button>
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                        Check In
+                    </button>
+</div>
+<!-- Profile Dropdown Trigger -->
+<div class="relative" id="profileDropdownTrigger">
+<button class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-variant focus:outline-none focus:border-secondary transition-colors hover:shadow-md cursor-pointer">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of an HR administrator, bright lighting, modern corporate setting, light gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcpfqBbL-CHROraQaJ-KuKRiy9EgfSNb7T_qFLYSuf1QIvbyH34IlNy1vuGdpOcf8ShdZAEK_zHIomS3tkSpR9zERBLnjXEQ9HGQMhzZBGNDBOJUCy-FtZy7xU63iRL7ifEsA77Au-23fblcLVj_k6jtl6dmKksCXWToyIkDgKIV-iF0pSjWy9sozEKjyvj3wVN5zDuqKkKleo7poDRUlRu_S4mhv1s4eA1Gg1iDyMozZ7r75LZI8"/>
+</button>
+<!-- Dropdown Menu -->
+<div class="hidden absolute right-0 mt-2 w-48 bg-surface-container-lowest border border-outline-variant rounded-lg shadow-lg py-1 z-50" id="profileDropdown">
+<a class="block px-4 py-2 text-body-md text-on-surface hover:bg-surface-container-low transition-colors" href="#">My Profile</a>
+<hr class="border-outline-variant my-1"/>
+<a class="block px-4 py-2 text-body-md text-error hover:bg-error-container transition-colors" href="#">Log Out</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Sidebar Navigation (Desktop) -->
+<aside class="hidden lg:flex flex-col w-60 bg-primary-container text-on-primary-container shadow-sm flex-shrink-0 relative z-40">
+<div class="flex flex-col py-4 h-full sticky top-0 max-h-screen overflow-y-auto">
+<!-- Header Area -->
+<div class="px-6 mb-8 mt-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center mb-4 shadow-sm border border-outline/20">
+<span class="material-symbols-outlined text-secondary text-2xl">account_balance</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-black text-on-primary-container">HR Portal</h2>
+<p class="font-body-md text-body-md text-on-primary-container/70">Admin Dashboard</p>
+</div>
+<!-- Main Nav Links -->
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 bg-secondary text-on-secondary rounded-lg mx-2 px-4 py-3 font-label-sm text-label-sm shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                        Directory
+                    </a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-on-primary-container hover:bg-primary px-6 py-3 font-label-sm text-label-sm transition-all rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                        My Attendance
+                    </a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-on-primary-container hover:bg-primary px-6 py-3 font-label-sm text-label-sm transition-all rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+                        Request Time Off
+                    </a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-on-primary-container hover:bg-primary px-6 py-3 font-label-sm text-label-sm transition-all rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                        Payroll
+                    </a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-on-primary-container hover:bg-primary px-6 py-3 font-label-sm text-label-sm transition-all rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</nav>
+<!-- Footer Actions -->
+<div class="mt-auto px-4 pt-4 border-t border-on-primary-container/10">
+<button class="w-full flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary py-2.5 rounded-lg font-label-sm text-label-sm transition-colors shadow-sm mb-4">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                        Add Employee
+                    </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-on-primary-container px-2 py-2 font-label-sm text-label-sm transition-all rounded-lg hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+                            Help Center
+                        </a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-error px-2 py-2 font-label-sm text-label-sm transition-all rounded-lg hover:bg-error/10" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                            Log Out
+                        </a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto p-margin-page overflow-y-auto">
+<!-- Page Header & Toolbar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Employee Directory</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage and view all personnel records.</p>
+</div>
+<div class="flex w-full md:w-auto items-center gap-3">
+<!-- Search Input -->
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-sm">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary transition-all shadow-sm" placeholder="Search employees..." type="text"/>
+</div>
+<!-- New Button -->
+<button class="hidden md:flex flex-shrink-0 items-center gap-1 px-4 py-2 bg-secondary text-on-secondary rounded-lg font-label-sm text-label-sm hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                        NEW
+                    </button>
+</div>
+</div>
+<!-- Employee Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Card 1 (Present) -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-padding-card hover:shadow-md hover:border-secondary/30 transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-start justify-between mb-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-high border-2 border-surface-container-lowest shadow-sm overflow-hidden flex-shrink-0">
+<img alt="Sarah Jenkins profile" class="w-full h-full object-cover" data-alt="Professional headshot of a young woman smiling, bright corporate background, light mode aesthetic, crisp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADypdv8C-p8cff2DD56HiOedfRDvn2IBPusCtKpUNvlGBFczqgoWQ4pGxqzl-RbeZW0hDW-vNzEaLihYwpkSxekYjsTj7OByqZ_KawBEDXhynHJjO1z36-Qf4oY2ZMUaqwHPVFJITQXq8Q4NCXws3BeVKsMR40gw1zsDE2i6QC5y7qEWek_uGDTcDGPL7gY4AdRqSyAejolGFw2HIIUYxv720xAbiTEvoj_rdvoNnh9tHbu48zMWE"/>
+</div>
+<!-- Status: Present -->
+<div class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest border border-outline-variant/30 shadow-sm" title="Present in office">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Sarah Jenkins</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Senior UX Designer</p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-[10px] uppercase tracking-wider rounded border border-outline-variant/30">Design</span>
+<span class="px-2 py-1 bg-secondary-container/10 text-secondary font-label-sm text-[10px] uppercase tracking-wider rounded border border-secondary/20">Full-time</span>
+</div>
+</div>
+</div>
+<!-- Card 2 (Absent) -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-padding-card hover:shadow-md hover:border-secondary/30 transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-surface-variant/10 z-0"></div>
+<div class="relative z-10">
+<div class="flex items-start justify-between mb-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-high border-2 border-surface-container-lowest shadow-sm overflow-hidden flex-shrink-0 grayscale">
+<img alt="Michael Chen profile" class="w-full h-full object-cover" data-alt="Professional headshot of a middle-aged man in a suit, modern office setting, light mode aesthetic, neutral expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAQT31-yyeZbrv_NedbUMQsKBKfDhqpC9_kxwXR1_LRMnye9-usLzvCYZtK63DGcMPg3nyssYPXFL0QbrgM-ttFxOnXhAzw5EI2dWHBhOK6TZBV_qWysn8Zo9pSMH-_ylZcHxKeDCONtZ1B7HHAsttYbtQ5enxwkLjNGMs1cL0Qt9_L5p4EH4wgEARKD3z9mMw5tCUGk84fXqwYQIvRLzpD5VajpyXOmsbl4YpNywwVpZ7eMm_wEQ"/>
+</div>
+<!-- Status: Absent -->
+<div class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest border border-outline-variant/30 shadow-sm" title="Absent">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Michael Chen</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Lead Developer</p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-[10px] uppercase tracking-wider rounded border border-outline-variant/30">Engineering</span>
+<span class="px-2 py-1 bg-secondary-container/10 text-secondary font-label-sm text-[10px] uppercase tracking-wider rounded border border-secondary/20">Full-time</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 (On Leave) -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-padding-card hover:shadow-md hover:border-secondary/30 transition-all cursor-pointer relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-high border-2 border-surface-container-lowest shadow-sm overflow-hidden flex-shrink-0">
+<img alt="Elena Rodriguez profile" class="w-full h-full object-cover" data-alt="Professional headshot of a woman with glasses, light corporate environment, crisp focus, light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Wczfojrg-fAPt6iAciEFJyinBcRmThxqNyIK5M2DiYE-8nwyxqQsGYuXTRm-yBVDAavrwnkwlx4WiZsdpjZrOulyZFnTX6f-1pQ78DaLdZtD5GFuS4Vpu38D9YgVjVxbuQ_95bBW67YLGePXPie_gWvpbpwYyktb0E8Ri-_Q5BEQwcfkkKChUi0BxbMKTyBgtRcD-1tdNxGsWb7aVHSVZsgCSme5WCS_reC38lHBhgg1Y4wAV9I"/>
+</div>
+<!-- Status: Leave -->
+<div class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest border border-outline-variant/30 shadow-sm" title="On Leave">
+<span class="material-symbols-outlined text-secondary text-[14px]">flight</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Elena Rodriguez</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Product Manager</p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-[10px] uppercase tracking-wider rounded border border-outline-variant/30">Product</span>
+<span class="px-2 py-1 bg-secondary-container/10 text-secondary font-label-sm text-[10px] uppercase tracking-wider rounded border border-secondary/20">Full-time</span>
+</div>
+</div>
+</div>
+<!-- Card 4 (Present) -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-padding-card hover:shadow-md hover:border-secondary/30 transition-all cursor-pointer relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-high border-2 border-surface-container-lowest shadow-sm overflow-hidden flex-shrink-0">
+<img alt="David Kim profile" class="w-full h-full object-cover" data-alt="Professional headshot of a young man smiling, modern office setting, bright lighting, corporate casual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8hcuEtfLTSrZpATzrP89g-DucizACV2fsvpauizY_7XvJnEcn9sA91EhdBXew5TD3iY1qOtZLZNfXgekEgKtK9E1pWT5OBZ5ZVXDMQ7Pfl9plftD63D-AFji--SXzeU9olhl7Giwor5QC_JZ51t-E-mScWa6cssDOuxKnhTfEUOJ6_icAX9-5ZtFCuuBv2WrglTHWlOe3qpEDy8rKJb8IQS6_d9PmXcnf7uNQo5FI7P0Gf8qZP4k"/>
+</div>
+<div class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest border border-outline-variant/30 shadow-sm" title="Present in office">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">David Kim</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Data Analyst</p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-[10px] uppercase tracking-wider rounded border border-outline-variant/30">Analytics</span>
+<span class="px-2 py-1 bg-surface-container-highest/50 text-on-surface-variant font-label-sm text-[10px] uppercase tracking-wider rounded border border-outline-variant/30">Contract</span>
+</div>
+</div>
+</div>
+<!-- Card 5 (Present) -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-padding-card hover:shadow-md hover:border-secondary/30 transition-all cursor-pointer relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-high border-2 border-surface-container-lowest shadow-sm overflow-hidden flex-shrink-0">
+<span class="material-symbols-outlined text-outline text-2xl flex h-full w-full items-center justify-center bg-surface-variant">person</span>
+</div>
+<div class="flex items-center justify-center w-6 h-6 rounded-full bg-surface-container-lowest border border-outline-variant/30 shadow-sm" title="Present in office">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Amanda Bates</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">HR Coordinator</p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-2 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-[10px] uppercase tracking-wider rounded border border-outline-variant/30">Human Resources</span>
+<span class="px-2 py-1 bg-secondary-container/10 text-secondary font-label-sm text-[10px] uppercase tracking-wider rounded border border-secondary/20">Full-time</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Script for interactive elements (Dropdown) -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdownTrigger = document.getElementById('profileDropdownTrigger');
+            const dropdownMenu = document.getElementById('profileDropdown');
+
+            dropdownTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownTrigger.contains(e.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body></html>
