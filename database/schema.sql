@@ -189,4 +189,3 @@ CREATE TRIGGER set_updated_at_leave_requests
 CREATE TRIGGER set_updated_at_payroll
     BEFORE UPDATE ON payroll
     FOR EACH ROW EXECUTE FUNCTION trigger_set_updated_at();
-
