@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up — HRM System</title>
+<link rel="stylesheet" href="../css/auth.css">
+</head>
+<body class="sign-up">
+
+  <div class="card">
+    <div class="logo-frame"><span>LOGO</span></div>
+    <div class="brand">Human Resource Management System</div>
+    <h1>Sign Up</h1>
+    <p class="subtitle">Create an account to get started</p>
+
+    <form onsubmit="return false;">
+
+      <div class="field">
+        <label for="companyName">Company Name</label>
+        <div class="company-row">
+          <div class="input-frame">
+            <input type="text" id="companyName" name="companyName" placeholder="Enter your company name">
+          </div>
+          <button type="button" class="upload-btn" id="uploadBtn" aria-label="Upload company logo" title="Upload company logo" onclick="document.getElementById('logoFile').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </button>
+          <input type="file" id="logoFile" accept="image/*" style="display:none" onchange="handleLogoUpload(this)">
+        </div>
+        <p class="upload-hint" id="uploadHint">Upload your company logo</p>
+      </div>
+
+      <div class="field">
+        <label for="fullName">Name</label>
+        <div class="input-frame">
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <div class="input-frame">
+          <input type="email" id="email" name="email" placeholder="Enter your email address" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone</label>
+        <div class="input-frame">
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="input-frame has-toggle">
+          <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password">
+          <button type="button" class="toggle-btn" aria-label="Show password" onclick="togglePassword('password', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="input-frame has-toggle">
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password">
+          <button type="button" class="toggle-btn" aria-label="Show password" onclick="togglePassword('confirmPassword', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Sign Up</button>
+
+      <p class="switch-text">Already have an account? <a href="signin.html">Sign In</a></p>
+    </form>
+  </div>
+
+<script src="../js/auth.js"></script>
+</body>
+</html>
