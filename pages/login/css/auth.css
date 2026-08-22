@@ -1,0 +1,164 @@
+:root {
+  --bg-top: #f7f6fc;
+  --bg-bottom: #efedf9;
+  --card-bg: #fff;
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-tint: #f3eefe;
+  --text-primary: #1e1b2e;
+  --text-secondary: #6b7280;
+  --border: #e3e1ec;
+  --input-bg: #fbfafe;
+  --focus-ring: rgba(124, 58, 237, 0.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  align-items: center;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  color: var(--text-primary);
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(30, 27, 46, 0.06), 0 1px 3px rgba(30, 27, 46, 0.05);
+  max-width: 400px;
+  padding: 36px 32px 32px;
+  width: 100%;
+}
+
+.logo-frame {
+  align-items: center;
+  background: #faf9fd;
+  border: 1.5px dashed #c9c6dc;
+  border-radius: 10px;
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  margin: 0 auto 22px;
+  width: 110px;
+}
+
+.logo-frame span { color: #9c98b4; font-size: 12px; font-weight: bold; letter-spacing: 1.5px; }
+
+.brand {
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1 { font-size: 22px; font-weight: bold; margin-bottom: 6px; text-align: center; }
+
+.subtitle { color: var(--text-secondary); font-size: 13px; margin-bottom: 26px; text-align: center; }
+.sign-in .subtitle { margin-bottom: 28px; }
+
+form { display: flex; flex-direction: column; }
+.field { margin-bottom: 16px; }
+.sign-in .field { margin-bottom: 18px; }
+
+label { color: var(--text-primary); display: block; font-size: 13px; font-weight: bold; margin-bottom: 7px; }
+
+.input-frame {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  position: relative;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-frame:focus-within { background: #fff; border-color: var(--primary); box-shadow: 0 0 0 4px var(--focus-ring); }
+
+.input-frame input {
+  background: transparent;
+  border: 0;
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  outline: 0;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.input-frame input::placeholder { color: #b4b1c6; }
+.input-frame.has-toggle input { padding-right: 42px; }
+
+.toggle-btn {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: #9c98b4;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+}
+
+.toggle-btn:hover { background: var(--primary-tint); color: var(--primary); }
+.toggle-btn svg, .upload-btn svg { height: 18px; width: 18px; }
+
+.company-row { align-items: stretch; display: flex; gap: 10px; }
+.company-row .input-frame { flex: 1; }
+
+.upload-btn {
+  align-items: center;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: #9c98b4;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  height: 44px;
+  justify-content: center;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  width: 44px;
+}
+
+.upload-btn:hover, .upload-btn.uploaded { background: var(--primary-tint); border-color: var(--primary); color: var(--primary); }
+.upload-hint { color: var(--text-secondary); font-size: 11px; margin-top: 6px; }
+
+.submit-btn {
+  background: var(--primary);
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 8px;
+  padding: 13px;
+  transition: background 0.15s ease;
+  width: 100%;
+}
+
+.sign-in .submit-btn { margin-top: 6px; }
+.submit-btn:hover { background: var(--primary-hover); }
+
+.switch-text { color: var(--text-secondary); font-size: 13px; margin-top: 22px; text-align: center; }
+.switch-text a { color: var(--primary); font-weight: bold; text-decoration: none; }
+.switch-text a:hover { text-decoration: underline; }
+
+input:focus-visible, .toggle-btn:focus-visible, .submit-btn:focus-visible, .upload-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 420px) { .card { padding: 28px 20px 24px; } }
